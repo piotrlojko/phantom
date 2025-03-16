@@ -753,7 +753,7 @@ ifeq ($(SETUP), star)
 endif
 
 #------------------------------------------------
-# TESTS: (different moddumps + radiation)
+# TESTS: (different moddumps)
 ifeq ($(SETUP), Lau_star)
 #   import stellar model from 1D stellar evolution code
     SETUPFILE= setup_star.f90
@@ -761,7 +761,6 @@ ifeq ($(SETUP), Lau_star)
     ANALYSIS= ${SRCNIMHD} utils_summary.o utils_omp.o ptmass.o energies.o analysis_common_envelope.f90
     KNOWN_SETUP=yes
     GRAVITY=yes
-    RADIATION=yes
 endif
 
 ifeq ($(SETUP), Tricco_star)
@@ -771,7 +770,6 @@ ifeq ($(SETUP), Tricco_star)
     ANALYSIS= ${SRCNIMHD} utils_summary.o utils_omp.o ptmass.o energies.o analysis_common_envelope.f90
     KNOWN_SETUP=yes
     GRAVITY=yes
-    RADIATION=yes
 endif
 #------------------------------------------------
 
