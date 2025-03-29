@@ -2,13 +2,23 @@
 # Sensible compiler options for different compute systems
 #----------------------------------------------------------------
 
-ifeq ($(SYSTEM), wcss)
+#----------------------------------------------------------------
+ifeq ($(SYSTEM), wcss_ifx)
+#   Bem 2 cluster at WCSS (Wrocław Centre for Networking and Supercomputing)
+    include Makefile_defaults_ifx
+    OMPFLAGS=-qopenmp #-qopt-report
+    QSYS=slurm
+    FFLAGS+= -heap-arrays #-dynamic
+endif
+
+ifeq ($(SYSTEM), wcss_ifort)
 #   Bem 2 cluster at WCSS (Wrocław Centre for Networking and Supercomputing)
     include Makefile_defaults_ifort
     OMPFLAGS=-qopenmp #-qopt-report
     QSYS=slurm
     FFLAGS+= -heap-arrays #-dynamic
 endif
+#----------------------------------------------------------------
 
 ifeq ($(SYSTEM), cray)
 #   default settings for the Cray Fortran Compiler (ftn)
